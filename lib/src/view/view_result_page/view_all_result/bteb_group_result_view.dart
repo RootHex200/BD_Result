@@ -164,7 +164,17 @@ class BtebGroupResultView extends StatelessWidget {
                                                                 .length <
                                                             6
                                                         ? 150
-                                                        : 220,
+                                                        : groupdata
+                                                                .result![index]
+                                                                .results!
+                                                                .subjects!
+                                                                .length <
+                                                            12?300:groupdata
+                                                                .result![index]
+                                                                .results!
+                                                                .subjects!
+                                                                .length <
+                                                            15?500:MediaQuery.of(context).size.height,
                                                     child: Column(
                                                       children: List.generate(
                                                           groupdata

@@ -1,10 +1,8 @@
 
 
 import 'dart:io';
-
 import 'package:bd_result/src/model/bteb_group_result_model.dart';
 import 'package:flutter/services.dart';
-import 'package:open_file/open_file.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -43,7 +41,18 @@ class BtebPdfService{
       if(groupresult.result![i].results!.passed!=null){
         productdata.add([(i+1).toString(),groupresult.result![i].roll.toString(),groupresult.result![i].results!.gpa.toString()]);
       }else{
-        productdata.add([(i+1).toString(),groupresult.result![i].roll.toString(),"${groupresult.result![i].results!.subjects!.length} Subjects Referred \n ${groupresult.result![i].results!.subjects}"]);
+        var count=3;
+        var tmp=[];
+        var subject=groupresult.result![i].results!.subjects;
+        for(int j=0;j<subject!.length;j++){
+          if(j==count){
+            tmp.add("\n");
+            count=count+3;
+          }else{
+            tmp.add(subject[j].toString());
+          }
+        }
+        productdata.add([(i+1).toString(),groupresult.result![i].roll.toString(),"${groupresult.result![i].results!.subjects!.length} Subjects Referred \n $tmp"]);
       }
       }
 
@@ -64,9 +73,6 @@ class BtebPdfService{
       return [
       Center(child: Text(groupresult.result![0].technology.toString().toUpperCase(),style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
       SizedBox(height: 20,),
-      Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
       Table.fromTextArray(
       headers: headers,
       data: productdata,
@@ -76,12 +82,10 @@ class BtebPdfService{
       cellHeight: 30,
       cellAlignments: {
         0: Alignment.centerLeft,
-        1: Alignment.center,
+        1: Alignment.centerRight,
         2: Alignment.centerRight,
       },
     ),
-      ],
-    )
       ];
     }));
 
@@ -90,7 +94,7 @@ class BtebPdfService{
     final filepath = File("${dir.path}/groupresult${DateTime.now().millisecondsSinceEpoch.toString()}.pdf");
 
     await filepath.writeAsBytes(bytes);
-    await OpenFile.open(filepath.path);
+    // await OpenFile.open(filepath.path);
     return "Download successfully ${filepath.path}";
     }catch (e){
       return "Download Faild";

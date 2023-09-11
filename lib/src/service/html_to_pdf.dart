@@ -69,7 +69,7 @@ class PDFserviceHtmlToPdf {
     Permission.storage,
   ].request();
   if(statuses[Permission.storage]!.isGranted){
-    String filename="${DateTime.now()}-${DateTime.now().millisecondsSinceEpoch.toString()}";
+    String filename="result_govt-${DateTime.now().millisecondsSinceEpoch.toString()}";
     try{
     Directory dir = Directory('/storage/emulated/0/Download');
     final file = File('${dir.path}/$filename.pdf');
