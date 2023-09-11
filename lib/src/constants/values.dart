@@ -1,6 +1,6 @@
 const List<String> resultNames=[
   "Bangladesh Technical Education Board",
-  "Intermediate and Secondary",
+  "Intermediate and Secondary Board",
 ];
 const List<String> btebTechnology=[
 "DIPLOMA IN ENGINEERING",
@@ -31,3 +31,64 @@ const List<String> btebResultType=[
   "Single Result",
   "Group Result",
 ];
+
+
+Map<String,dynamic> interSecondExamcheck={
+    "JSC/JDC": "jsc",
+    "SSC(Vocational)": "ssc_voc",
+    "SSC/Dakhil": "ssc",
+    "HSC/Alim/Equivalent": "hsc",
+    "HSC()": 'hsc_voc',
+    "HSC(BM)": 'hsc_hbm',
+    "Diploma in Commerce": 'hsc_dic',
+    "Diploma in Business Studies": "hsc"
+};
+List<String> interSecondExamName=[
+    "JSC/JDC",
+    "SSC(Vocational)",
+    "SSC/Dakhil",
+    "HSC/Alim/Equivalent",
+    "HSC()",
+    "HSC(BM)",
+    "Diploma in Commerce",
+    "Diploma in Business Studies"
+];
+Map<String,dynamic> interSecondBoardcheck= {
+    "Dhaka": 'dhaka',
+    "Barisal": "barisal",
+    "Chittagong": "chittagong",
+    "Comilla": "comilla",
+    "Dinajpur": "dinajpur",
+    "Jessore": "jessore",
+    "Mymensingh": "mymensingh",
+    "Rajshahi": "rajshahi",
+    "Shylet": "shylet",
+    "Madrasah": "madrasah",
+    "Technical": "tec",
+    "DIBS(Dhaka)": "dibs",
+};
+List<String> interSecondBoardName=[
+      "Dhaka",
+    "Barisal",
+    "Chittagong",
+    "Comilla",
+    "Dinajpur",
+    "Jessore",
+    "Mymensingh",
+    "Rajshahi",
+    "Shylet",
+    "Madrasah",
+    "Technical",
+    "DIBS(Dhaka)",
+];
+
+
+List<String> getYears(){
+  var year=DateTime.now().year;
+  List<String> years=[];
+  for(var i=0;i<20;i++){
+    years.add((year-i).toString());
+  }
+  return years;
+}
+  String baseurl="http://www.educationboardresults.gov.bd/";

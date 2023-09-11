@@ -37,6 +37,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_riverpod: ^2.4.0
   dio: ^5.3.2
+  html: ^0.15.4
+  path_provider: ^2.1.1
+  aspose_words_cloud: ^23.8.0
+  syncfusion_flutter_pdfviewer: ^20.4.54
+  permission_handler: ^11.0.0
+  pdf: ^3.10.4
+  open_file: ^3.3.2
 
 dev_dependencies:
   flutter_test:
@@ -61,8 +68,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/fonts/OpenSans-Regular.ttf
+    - assets/fonts/OpenSans-Bold.ttf
+    - assets/fonts/OpenSans-Italic.ttf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
