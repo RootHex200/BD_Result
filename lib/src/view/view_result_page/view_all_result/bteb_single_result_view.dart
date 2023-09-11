@@ -5,11 +5,12 @@ import 'package:bd_result/src/constants/colors.dart';
 import 'package:bd_result/src/controller/bteb_single_result_controller.dart';
 import 'package:bd_result/src/model/bteb_single_result_model.dart';
 import 'package:bd_result/src/model/bteb_user_data_model.dart';
+import 'package:bd_result/src/utils/widgets/download_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BtebSingleResultView extends StatelessWidget {
-  final BtebUserdataModel btebUserdataModel;
+  final UserInputdataModel btebUserdataModel;
   const BtebSingleResultView({
     super.key,
     required this.btebUserdataModel,
@@ -32,6 +33,19 @@ class BtebSingleResultView extends StatelessWidget {
             return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+             Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Align(
+                alignment: Alignment.centerRight,
+                child: InkWell(
+                  onTap: (){
+                  },
+                  child: const DownloadButton())
+                    ),
+              ),
+              const SizedBox(
+            height: 20,
+              ),
             Text("Roll :  ${signledata.roll}",style: const TextStyle(color: Appcolor.white,fontSize: 14)),
             const SizedBox(height: 20,),
           Text(signledata.technology.toString().toLowerCase(),style: const TextStyle(color: Appcolor.white,fontSize: 14)),

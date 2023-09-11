@@ -9,11 +9,11 @@ import 'package:dio/dio.dart';
 
 class BtebResultService{
 
-  Future<List<BtebSingleResultModel>> getBtebSingleResult(BtebUserdataModel btebUserdataModel) async {
+  Future<List<BtebSingleResultModel>> getBtebSingleResult(UserInputdataModel btebUserdataModel) async {
 
     final response = await Dio().get("https://btebresultsbd.com/api/result",
     queryParameters: {
-      "rollNumber":btebUserdataModel.roll,
+      "rollNumber":btebUserdataModel.btebroll,
       "technology":btebUserdataModel.technologyname.toString().toLowerCase(),
     }
     );
@@ -24,7 +24,7 @@ class BtebResultService{
     }
   }
 
-    Future<BtebGroupResultModel> getBtebGroupResult(BtebUserdataModel btebUserdataModel) async {
+    Future<BtebGroupResultModel> getBtebGroupResult(UserInputdataModel btebUserdataModel) async {
       //https://btebresultsbd.com/api/group?startRoll=581701&endRoll=null&semester=4th&technology=diploma%20in%20engineering
     
     final response = await Dio().get("https://btebresultsbd.com/api/group",

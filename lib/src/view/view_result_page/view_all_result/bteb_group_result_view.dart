@@ -2,11 +2,13 @@ import 'package:bd_result/src/constants/colors.dart';
 import 'package:bd_result/src/controller/bteb_group_result_controller.dart';
 import 'package:bd_result/src/model/bteb_group_result_model.dart';
 import 'package:bd_result/src/model/bteb_user_data_model.dart';
+import 'package:bd_result/src/service/bteb_pdf_generate.dart';
+import 'package:bd_result/src/utils/widgets/download_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BtebGroupResultView extends StatelessWidget {
-  final BtebUserdataModel btebUserdataModel;
+  final UserInputdataModel btebUserdataModel;
   const BtebGroupResultView({
     super.key,
     required this.btebUserdataModel,
@@ -33,6 +35,28 @@ class BtebGroupResultView extends StatelessWidget {
           data: (BtebGroupResultModel groupdata) {
             return Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: Align(
+                      alignment: Alignment.centerRight,
+                      child: InkWell(
+                          onTap: () async{
+                            var result=await BtebPdfService().downloadbtebresult(groupdata);
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text(
+                                      result.toString())));
+                          },
+                          child: const DownloadButton())),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(groupdata.result![0].technology.toString().toUpperCase(),
+                    style:
+                        const TextStyle(color: Appcolor.white, fontSize: 14)),
+                const SizedBox(
+                  height: 20,
+                ),
                 Container(
                   color: Appcolor.primaryColor,
                   child: Padding(
@@ -111,35 +135,57 @@ class BtebGroupResultView extends StatelessWidget {
                                                         Text(
                                                             "Roll : ${groupdata.result![index].roll}",
                                                             style: const TextStyle(
-                                                                color: Appcolor.white,
-                                                                fontSize: 14,fontWeight: FontWeight.bold)),
-                                                      const SizedBox(height: 10,),
-                                                      Text(
+                                                                color: Appcolor
+                                                                    .white,
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold)),
+                                                        const SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Text(
                                                             "${groupdata.result![index].results!.subjects!.length} Subjects Referred",
                                                             style: const TextStyle(
-                                                                color: Appcolor.red,
-                                                                fontSize: 14,fontWeight: FontWeight.bold))
+                                                                color: Appcolor
+                                                                    .red,
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold))
                                                       ],
                                                     ),
                                                   ),
                                                   content: SizedBox(
-                                                    height:groupdata
-                                                            .result![index]
-                                                            .results!
-                                                            .subjects!
-                                                            .length<6?150:220,
+                                                    height: groupdata
+                                                                .result![index]
+                                                                .results!
+                                                                .subjects!
+                                                                .length <
+                                                            6
+                                                        ? 150
+                                                        : 220,
                                                     child: Column(
-                                                      children: List.generate(groupdata
-                                                            .result![index]
-                                                            .results!
-                                                            .subjects!
-                                                            .length, (indexvalue) => Center(
+                                                      children: List.generate(
+                                                          groupdata
+                                                              .result![index]
+                                                              .results!
+                                                              .subjects!
+                                                              .length,
+                                                          (indexvalue) => Center(
                                                               child: Text(
-                                                                  groupdata.result![index].results!.subjects![indexvalue].toString().trimLeft().trimRight(),
+                                                                  groupdata
+                                                                      .result![
+                                                                          index]
+                                                                      .results!
+                                                                      .subjects![
+                                                                          indexvalue]
+                                                                      .toString()
+                                                                      .trimLeft()
+                                                                      .trimRight(),
                                                                   style: const TextStyle(
-                                                                      color:
-                                                                          Appcolor
-                                                                              .red,
+                                                                      color: Appcolor
+                                                                          .red,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold,

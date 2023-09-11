@@ -59,13 +59,13 @@ class _SingleResultState extends State<SingleResult> {
               onTap: () {
                 try {
                   if (_rollcontroller.text.isNotEmpty) {
-                    BtebUserdataModel btebUserdataModel = BtebUserdataModel(
+                    UserInputdataModel btebUserdataModel = UserInputdataModel(
                         technologyname: selectedTechValue,
-                        roll: int.parse(_rollcontroller.text),
+                        btebroll: int.parse(_rollcontroller.text),
                         resultType: btebResultType[0]);
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ViewResultPage(
-                              btebUserdataModel: btebUserdataModel,
+                              userdataModel: btebUserdataModel,
                             )));
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

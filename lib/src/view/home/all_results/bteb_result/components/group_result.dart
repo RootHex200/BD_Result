@@ -87,7 +87,7 @@ class _GroupResultState extends State<GroupResult> {
               onTap: () {
                                 try {
                   if (_endrollcontroller.text.isNotEmpty&&_startrollcontroller.text.isNotEmpty) {
-                    BtebUserdataModel btebUserdataModel = BtebUserdataModel(
+                    UserInputdataModel btebUserdataModel = UserInputdataModel(
                         technologyname: selectedTechValue,
                         semester: selectedSemesterValue,
                         endroll: int.parse(_endrollcontroller.text),
@@ -96,7 +96,7 @@ class _GroupResultState extends State<GroupResult> {
                     
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ViewResultPage(
-                              btebUserdataModel: btebUserdataModel,
+                              userdataModel: btebUserdataModel,
                             )));
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
