@@ -4,7 +4,7 @@
 <div align="center">
 <img  src="./images/logo.png" width="200" height="200"/>
 
-## **Task Manager**
+## **BD Result**
   <p align="center">
 "BD Result" is an Android app designed to assist you in quickly accessing your Board Exam results and producing a printable PDF document
     <div>
