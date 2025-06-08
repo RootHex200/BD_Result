@@ -39,9 +39,9 @@ dependencies:
   dio: ^5.3.2
   html: ^0.15.4
   path_provider: ^2.1.1
-  aspose_words_cloud: ^23.8.0
-  syncfusion_flutter_pdfviewer: ^20.4.54
-  permission_handler: ^11.0.0
+  aspose_words_cloud: ^25.5.0
+  syncfusion_flutter_pdfviewer: ^29.1.38
+  permission_handler: ^12.0.0+1
   pdf: ^3.10.4
 
 dev_dependencies:
@@ -53,7 +53,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
