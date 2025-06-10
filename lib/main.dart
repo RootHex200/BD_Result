@@ -1,9 +1,19 @@
 
+import 'package:bd_result/src/core/database/shared_perf_manager.dart';
+import 'package:bd_result/src/core/di/service_locator.dart';
 import 'package:bd_result/src/view/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  //initialize service locator
+  initializationServiceLocator();
+
+  //initialize shared preference
+  await getIt<SharedPreferenceManager>().getSharedPref();
+
   runApp( const ProviderScope(child: MyApp()));
 }
 
