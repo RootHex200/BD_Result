@@ -11,7 +11,7 @@ class AuthToken {
     pref.setAuthToken(value);
   }
 
-  String getAuthTokne(){
+  String getAuthToken(){
     return pref.getAuthToken();
   }
 
