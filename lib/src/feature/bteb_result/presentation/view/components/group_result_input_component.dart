@@ -6,25 +6,29 @@ import 'package:bd_result/src/utils/widgets/custom_textfield.dart';
 import 'package:bd_result/src/view/view_result_page/view_result_page.dart';
 import 'package:flutter/material.dart';
 
-class SingleResult extends StatefulWidget {
-  const SingleResult({super.key});
+class GroupResultInputComponent extends StatefulWidget {
+  const GroupResultInputComponent({super.key});
 
   @override
-  State<SingleResult> createState() => _SingleResultState();
+  State<GroupResultInputComponent> createState() => _GroupResultInputComponentState();
 }
 
-class _SingleResultState extends State<SingleResult> {
-  late TextEditingController _rollcontroller;
+class _GroupResultInputComponentState extends State<GroupResultInputComponent> {
+  late TextEditingController _startrollcontroller;
+  late TextEditingController _endrollcontroller;
   String selectedTechValue = btebTechnology[0];
+  String selectedSemesterValue = btebsemester[0];
   @override
   void initState() {
-    _rollcontroller = TextEditingController();
+    _startrollcontroller = TextEditingController();
+    _endrollcontroller = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
-    _rollcontroller.dispose();
+    _startrollcontroller.dispose();
+    _endrollcontroller.dispose();
     super.dispose();
   }
 
@@ -49,20 +53,47 @@ class _SingleResultState extends State<SingleResult> {
             height: 20,
           ),
           SizedBox(
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: CustomTextField(
-                  hintText: "Roll Number", controller: _rollcontroller)),
+            width: MediaQuery.of(context).size.width * 0.9,
+            height: 70,
+            child: Customdropdown(
+                selectedValue: selectedSemesterValue,
+                onChanged: (value) {
+                  selectedSemesterValue = value.toString();
+                },
+                items: btebsemester,
+                hintText: "Select Technology"),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: CustomTextField(
+                      hintText: "Start Roll",
+                      controller: _startrollcontroller)),
+              SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: CustomTextField(
+                      hintText: "End Roll", controller: _endrollcontroller)),
+            ],
+          ),
           const SizedBox(
             height: 20,
           ),
           InkWell(
               onTap: () {
-                try {
-                  if (_rollcontroller.text.isNotEmpty) {
+                                try {
+                  if (_endrollcontroller.text.isNotEmpty&&_startrollcontroller.text.isNotEmpty) {
                     UserInputdataModel btebUserdataModel = UserInputdataModel(
                         technologyname: selectedTechValue,
-                        btebroll: int.parse(_rollcontroller.text),
-                        resultType: btebResultType[0]);
+                        semester: selectedSemesterValue,
+                        endroll: int.parse(_endrollcontroller.text),
+                        startroll: int.parse(_startrollcontroller.text),
+                        resultType: btebResultType[1]);
+                    
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ViewResultPage(
                               userdataModel: btebUserdataModel,

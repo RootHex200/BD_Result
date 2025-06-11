@@ -1,13 +1,13 @@
 import 'package:bd_result/src/constants/colors.dart';
 import 'package:bd_result/src/constants/values.dart';
 import 'package:bd_result/src/controller/radio_button_controller.dart';
-import 'package:bd_result/src/view/home/all_results/bteb_result/components/group_result.dart';
-import 'package:bd_result/src/view/home/all_results/bteb_result/components/single_result.dart';
+import 'package:bd_result/src/feature/bteb_result/presentation/view/components/group_result_input_component.dart';
+import 'package:bd_result/src/feature/bteb_result/presentation/view/components/single_result_input_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class BtebResultPage extends StatelessWidget {
-  const BtebResultPage({super.key});
+class BtebPage extends StatelessWidget {
+  const BtebPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class BtebResultPage extends StatelessWidget {
                     final radiovalue = ref.watch(radiobuttonProvider("bteb"));
                     return RadioListTile(
                         fillColor:
-                            MaterialStateProperty.all(Appcolor.primaryColor),
+                            WidgetStateProperty.all(Appcolor.primaryColor),
                         title: Text(
                           btebResultType[index].toString(),
                           style: const TextStyle(
@@ -67,10 +67,10 @@ class BtebResultPage extends StatelessWidget {
 
   Widget checkResulType(String value){
     if(value==btebResultType[0]){
-      return const SingleResult();
+      return const SingleResultInputComponent();
     }
     if(value==btebResultType[1]){
-      return const GroupResult();
+      return const GroupResultInputComponent();
     }
     return Container();
   }

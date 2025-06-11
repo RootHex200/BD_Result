@@ -1,5 +1,5 @@
 import 'package:bd_result/src/constants/colors.dart';
-import 'package:bd_result/src/controller/bteb_group_result_controller.dart';
+import 'package:bd_result/src/feature/bteb_result/presentation/viewmodel/bteb_group_result_controller.dart';
 import 'package:bd_result/src/model/bteb_group_result_model.dart';
 import 'package:bd_result/src/model/bteb_user_data_model.dart';
 import 'package:bd_result/src/service/bteb_pdf_generate.dart';

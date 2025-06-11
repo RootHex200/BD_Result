@@ -2,7 +2,7 @@
 
 
 import 'package:bd_result/src/constants/colors.dart';
-import 'package:bd_result/src/controller/bteb_single_result_controller.dart';
+import 'package:bd_result/src/feature/bteb_result/presentation/viewmodel/bteb_single_result_controller.dart';
 import 'package:bd_result/src/model/bteb_single_result_model.dart';
 import 'package:bd_result/src/model/bteb_user_data_model.dart';
 import 'package:bd_result/src/utils/widgets/download_button.dart';

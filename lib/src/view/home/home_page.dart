@@ -3,7 +3,7 @@ import 'package:bd_result/src/constants/colors.dart';
 import 'package:bd_result/src/constants/values.dart';
 import 'package:bd_result/src/controller/radio_button_controller.dart';
 import 'package:bd_result/src/view/home/all_results/Intermediate_secondary_result/Intermediate_secondary_result_page.dart';
-import 'package:bd_result/src/view/home/all_results/bteb_result/bteb_result_page.dart';
+import 'package:bd_result/src/feature/bteb_result/presentation/view/bteb_page.dart';
 import 'package:bd_result/src/view/notification/notification_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -67,7 +67,7 @@ class Homepage extends StatelessWidget {
   }
   Widget checkResultpage(String value){
     if(value==resultNames[0]){
-      return const BtebResultPage();
+      return const BtebPage();
     }
     if(value==resultNames[1]){
       return const Intermediatesecondaryresult();
