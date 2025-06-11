@@ -1,10 +1,10 @@
 
 
-import 'package:bd_result/src/feature/bteb_result/data/model/bteb_single_result_model.dart';
+import 'package:bd_result/src/feature/bteb_result/data/model/bteb_single_result_model_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'bteb_group_result_model.freezed.dart';
-part 'bteb_group_result_model.g.dart';
+part 'bteb_group_result_response_model.freezed.dart';
+part 'bteb_group_result_response_model.g.dart';
 
 @freezed
 class BtebGroupResultModel with _$BtebGroupResultModel {

@@ -1,7 +1,7 @@
 
 
 
-import 'package:bd_result/src/feature/bteb_result/data/model/bteb_single_result_model.dart';
+import 'package:bd_result/src/feature/bteb_result/data/model/bteb_single_result_model_response.dart';
 import 'package:bd_result/src/feature/bteb_result/domain/entity/result_entity.dart';
 
 class BtebSingleResultEntity {

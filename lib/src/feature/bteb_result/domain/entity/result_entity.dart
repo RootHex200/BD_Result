@@ -1,6 +1,6 @@
 
 
-import 'package:bd_result/src/feature/bteb_result/data/model/bteb_single_result_model.dart';
+import 'package:bd_result/src/feature/bteb_result/data/model/bteb_single_result_model_response.dart';
 
 class ResultsEntity {
   final dynamic passed;

@@ -2,8 +2,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'bteb_single_result_model.freezed.dart';
-part 'bteb_single_result_model.g.dart';
+part 'bteb_single_result_model_response.freezed.dart';
+part 'bteb_single_result_model_response.g.dart';
 
 @freezed
 class BtebSingleResultModel with _$BtebSingleResultModel {

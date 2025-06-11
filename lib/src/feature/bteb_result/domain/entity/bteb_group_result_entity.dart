@@ -1,6 +1,6 @@
 
 
-import 'package:bd_result/src/feature/bteb_result/data/model/bteb_group_result_model.dart';
+import 'package:bd_result/src/feature/bteb_result/data/model/bteb_group_result_response_model.dart';
 import 'package:bd_result/src/feature/bteb_result/domain/entity/result_entity.dart';
 
 class BtebGroupResultEntity {

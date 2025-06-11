@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bteb_single_result_model.dart';
+part of 'bteb_single_result_model_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
