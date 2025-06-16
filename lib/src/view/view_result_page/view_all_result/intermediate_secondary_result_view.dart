@@ -2,7 +2,7 @@
 import 'package:bd_result/src/constants/colors.dart';
 import 'package:bd_result/src/controller/intermediate_secondary_result_controller.dart';
 import 'package:bd_result/src/model/bteb_user_data_model.dart';
-import 'package:bd_result/src/service/html_to_pdf.dart';
+import 'package:bd_result/src/core/services/html_to_pdf.dart';
 import 'package:bd_result/src/utils/widgets/download_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

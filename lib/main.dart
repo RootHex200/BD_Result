@@ -1,7 +1,7 @@
 
 import 'package:bd_result/src/core/database/shared_perf_manager.dart';
 import 'package:bd_result/src/core/di/service_locator.dart';
-import 'package:bd_result/src/view/home/home_page.dart';
+import 'package:bd_result/src/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
